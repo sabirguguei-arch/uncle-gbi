@@ -1,6 +1,0 @@
-import { PageHero } from "@/components/hero/PageHero";
-import { ProjectCard } from "@/components/projects/ProjectCard";
-import { projects } from "@/content/projects";
-import { createMetadata } from "@/lib/seo";
-export const metadata = createMetadata("Stories", "Read verified stories, field learning and updates from Green Belt Initiative when they are published.");
-export default function StoriesPage() { return <main><PageHero eyebrow="STORIES" title="Voices and learning from the field." intro="Follow the people, partnerships and practical ideas shaping a more resilient South Sudan."/><section className="px-5 py-20 sm:px-10 lg:py-28"><div className="mx-auto max-w-[1240px]"><div className="max-w-3xl"><p className="gbi-eyebrow">FIELD RECORDS</p><h2 className="font-display mt-5 text-4xl leading-[1.06] tracking-[-.035em] text-[#17342a] sm:text-5xl">Stories begin with work we can document.</h2><p className="mt-5 text-base leading-7 text-[#536b61]">Until new community stories and learning notes are verified for publication, explore these historical activity records with their available media, locations and source notes.</p></div><div className="mt-12 grid gap-5 md:grid-cols-3">{projects.slice(0, 3).map(project => <ProjectCard key={project.slug} project={project}/>)}</div></div></section></main>; }

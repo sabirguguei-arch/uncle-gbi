@@ -13,3 +13,5 @@ tsconfig.tsbuildinfo
 # Local VS Code task runner state
 .vscode/tasks.json
 
+# Separate Dinka Language Assistant project
+/DinkaLanguageAssistant/

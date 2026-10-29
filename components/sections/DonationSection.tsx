@@ -3,21 +3,16 @@
 import { FormEvent, useState } from "react";
 import { Leaf } from "@/components/ui/Icon";
 
-const presetAmounts = [10, 25, 50, 100];
 const minimumAmount = 1;
 const maximumAmount = 10_000;
 const PAYPAL_DONATION_URL = "";
 
-function formatAmount(amount: number) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(amount);
-}
-
 function validateAmount(value: string) {
   const amount = Number(value);
 
-  if (!value.trim() || !Number.isFinite(amount)) return "Enter a valid USD amount.";
-  if (amount < minimumAmount) return "Enter an amount of at least " + formatAmount(minimumAmount) + ".";
-  if (amount > maximumAmount) return "Enter an amount no greater than " + formatAmount(maximumAmount) + ".";
+  if (!value.trim() || !Number.isFinite(amount)) return "Enter a valid contribution amount.";
+  if (amount < minimumAmount) return "Enter a positive contribution amount.";
+  if (amount > maximumAmount) return "Enter a smaller contribution amount.";
   return "";
 }
 
@@ -34,20 +29,11 @@ function PayPalMark() {
 }
 
 export function DonationSection() {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  const choosePreset = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount("");
-    setError("");
-    setMessage("");
-  };
-
   const updateCustomAmount = (value: string) => {
-    setSelectedAmount(null);
     setCustomAmount(value);
     setError(validateAmount(value));
     setMessage("");
@@ -55,7 +41,7 @@ export function DonationSection() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const amountError = selectedAmount === null ? validateAmount(customAmount) : "";
+    const amountError = validateAmount(customAmount);
 
     setError(amountError);
     if (amountError) {
@@ -93,24 +79,14 @@ export function DonationSection() {
         <form aria-describedby="donation-note" className="rounded-2xl border border-white/15 bg-[#f7f5ee] p-6 text-[#17342a] shadow-[0_18px_50px_rgba(0,0,0,.16)] sm:p-8 lg:p-9" onSubmit={handleSubmit}>
           <fieldset>
             <legend className="text-lg font-bold tracking-[-.01em]">Choose your contribution</legend>
-            <p className="mt-1 text-sm leading-6 text-[#536b61]">Select an amount that feels right for you, or enter another amount in USD.</p>
-            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {presetAmounts.map(amount => (
-                <label key={amount} className="flex min-h-14 cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#d1d5c7] px-3 text-base font-bold transition-colors hover:border-[#1d6a4b] focus-within:ring-2 focus-within:ring-[#d5a53e] has-[:checked]:border-[#1d6a4b] has-[:checked]:bg-[#e1eff0]">
-                  <input aria-label={"Donate " + formatAmount(amount)} checked={selectedAmount === amount} className="h-4 w-4 accent-[#1d6a4b]" name="donation-amount" onChange={() => choosePreset(amount)} type="radio" value={amount}/>
-                  <span>{formatAmount(amount)}</span>
-                </label>
-              ))}
-            </div>
+            <p className="mt-1 text-sm leading-6 text-[#536b61]">Enter the contribution you would like to make.</p>
           </fieldset>
 
           <div className="mt-6">
-            <label className="text-sm font-bold" htmlFor="custom-donation-amount">Another amount (USD)</label>
+            <label className="text-sm font-bold" htmlFor="custom-donation-amount">Contribution amount</label>
             <div className="mt-2 flex items-center rounded-lg border border-[#b9c2b8] bg-white focus-within:ring-2 focus-within:ring-[#d5a53e]">
-              <span aria-hidden="true" className="pl-4 text-[#536b61]">$</span>
-              <input aria-describedby={error ? "donation-amount-error" : "donation-amount-help"} aria-invalid={!!error} className="min-h-12 w-full bg-transparent px-2 text-[#17342a] outline-none" id="custom-donation-amount" inputMode="decimal" min={minimumAmount} max={maximumAmount} onChange={event => updateCustomAmount(event.target.value)} placeholder="Enter another amount" step="0.01" type="number" value={customAmount}/>
+              <input aria-describedby={error ? "donation-amount-error" : undefined} aria-invalid={!!error} className="min-h-12 w-full bg-transparent px-4 text-[#17342a] outline-none" id="custom-donation-amount" inputMode="decimal" min={minimumAmount} max={maximumAmount} onChange={event => updateCustomAmount(event.target.value)} placeholder="Enter a contribution" step="0.01" type="number" value={customAmount}/>
             </div>
-            <p className="mt-2 text-xs leading-5 text-[#536b61]" id="donation-amount-help">Enter between {formatAmount(minimumAmount)} and {formatAmount(maximumAmount)}.</p>
             {error && <p className="mt-2 text-sm font-semibold text-red-800" id="donation-amount-error" role="alert">{error}</p>}
           </div>
 

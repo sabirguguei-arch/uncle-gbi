@@ -37,16 +37,11 @@ export function SiteFooter() {
                 <ContactIcon name="email" /><span className="break-all">{site.email}</span>
               </a>
             </address>
-            <div className="mt-5">
-              <p className="text-[.68rem] font-extrabold uppercase tracking-[.14em] text-white/55">Social</p>
-              {site.socialLinks.length ? <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2">{site.socialLinks.map(link => <a aria-label={link.label} className="inline-flex min-h-11 items-center gap-2 text-sm text-white/75 transition-colors hover:text-[#f5e6bd]" href={link.href} key={link.href} rel="noreferrer" target="_blank">{link.label.toLowerCase() === "facebook" && <ContactIcon name="facebook" />}<span>{link.label}</span></a>)}</div> : <p className="mt-2 text-xs text-white/55">Official social links to be confirmed.</p>}
-            </div>
           </div>
         </div>
 
         <div className="flex flex-col justify-between gap-3 pt-7 text-xs text-white/50 sm:flex-row">
           <span>© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-          <span>Privacy and legal information to be published.</span>
         </div>
       </div>
     </footer>

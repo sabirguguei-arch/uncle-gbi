@@ -1,4 +1,0 @@
-import Link from "next/link";
-import type { Story } from "@/types";
-import { Arrow } from "@/components/ui/Icon";
-export function StoryCard({ story }: { story: Story }) { return <Link href={`/stories/${story.slug}`} className="group block border-b border-[#d1d5c7] py-7"><p className="text-[.67rem] font-extrabold tracking-[.14em] text-[#1e6685]">{story.category.toUpperCase()} · {story.date.toUpperCase()}</p><div className="mt-3 flex items-center justify-between gap-5"><h2 className="font-display text-2xl leading-tight text-[#17342a] sm:text-3xl">{story.title}</h2><span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#7fa84d] text-[#17342a] transition-colors duration-200 group-hover:bg-[#1d6a4b] group-hover:text-white"><Arrow /></span></div><p className="mt-3 max-w-2xl leading-6 text-[#536b61]">{story.excerpt}</p></Link>; }

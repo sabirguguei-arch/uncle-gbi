@@ -8,12 +8,10 @@ export const site = {
   address: ["Plot 64, 500m off Bilpam Road", "Juba Nabari", "Juba, South Sudan, 211"],
   socialLinks: [] as { label: string; href: string }[],
   navigation: [
-    { label: "Home", href: "/" }, { label: "Our Work", href: "/programs" }, { label: "Projects", href: "/projects" },
-    { label: "Partners", href: "/partners" }, { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/" }, { label: "About GBI", href: "/about" }, { label: "Programmes", href: "/programs" },
+    { label: "Projects", href: "/projects" }, { label: "Contact", href: "/contact" },
   ],
   secondaryNavigation: [
-    { label: "About GBI", href: "/about" }, { label: "Impact", href: "/impact" },
-    { label: "Stories", href: "/stories" }, { label: "Resources", href: "/resources" },
     { label: "Get Involved", href: "/get-involved" },
   ],
 };
