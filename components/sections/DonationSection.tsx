@@ -54,6 +54,8 @@ export function DonationSection() {
       return;
     }
 
+    // External payment providers require a full-page navigation, not Next.js routing.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
     window.location.assign(PAYPAL_DONATION_URL);
   };
 

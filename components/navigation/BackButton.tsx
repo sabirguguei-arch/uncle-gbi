@@ -1,12 +1,12 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function BackButton() {
   const pathname = usePathname();
   const router = useRouter();
-  const [canGoBack, setCanGoBack] = useState(false);
+  const canGoBack = useRef(false);
 
   useEffect(() => {
     let previousTrackedPath: string | undefined;
@@ -28,11 +28,11 @@ export function BackButton() {
       sameOriginReferrer = false;
     }
 
-    setCanGoBack(window.history.length > 1 && (sameOriginReferrer || Boolean(previousTrackedPath && previousTrackedPath !== pathname)));
+    canGoBack.current = window.history.length > 1 && (sameOriginReferrer || Boolean(previousTrackedPath && previousTrackedPath !== pathname));
   }, [pathname]);
 
   function handleClick() {
-    if (canGoBack) {
+    if (canGoBack.current) {
       router.back();
       return;
     }

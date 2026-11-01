@@ -6,6 +6,8 @@ node_modules/
 # Local logs and build/type-check caches
 *.log
 tsconfig.tsbuildinfo
+playwright-report/
+test-results/
 
 # Temporary Codex attachments
 .codex-remote-attachments/
