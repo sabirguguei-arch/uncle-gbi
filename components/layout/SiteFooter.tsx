@@ -5,7 +5,7 @@ import { ContactIcon } from "@/components/ui/ContactIcon";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#113e31] px-5 py-12 text-white sm:px-10 lg:py-16">
+    <footer data-reveal className="bg-[#113e31] px-5 py-12 text-white sm:px-10 lg:py-16">
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-12 border-b border-white/15 pb-12 md:grid-cols-[1.15fr_.8fr_1fr]">
           <div>

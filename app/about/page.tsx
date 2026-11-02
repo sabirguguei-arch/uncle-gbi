@@ -8,7 +8,7 @@ import { Timeline } from "@/components/sections/Timeline";
 export const metadata = createMetadata("About GBI", "Learn about Green Belt Initiative, a South Sudanese humanitarian, development and environmental organization operating since 2016.");
 
 export default function AboutPage() {
-  return <main>
+  return <main data-motion-section>
     <section className="about-terrain relative overflow-hidden px-5 py-20 text-white sm:px-10 lg:py-28">
       <Image src="/images/projects/gbi-profile/aweil-east-wash-assessment-2019.jpeg" alt="" aria-hidden="true" width={1040} height={780} sizes="(max-width: 640px) 440px, (max-width: 1024px) 620px, 760px" className="pointer-events-none absolute -right-24 top-1/2 z-0 h-[440px] w-[440px] -translate-y-1/2 object-cover opacity-25 mix-blend-multiply sm:-right-28 sm:h-[620px] sm:w-[620px] lg:-right-20 lg:h-[760px] lg:w-[760px]" />
       <div className="relative z-10 mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
