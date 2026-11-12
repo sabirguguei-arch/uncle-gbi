@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { publicProjects as projects } from "@/content/projects";
 import { PageHero } from "@/components/hero/PageHero";
+import { createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() { return projects.map(project => ({ slug: project.slug })); }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projects.find(item => item.slug === slug);
-  return project ? { title: `${project.title} | GBI`, description: project.summary, openGraph: { title: `${project.title} | GBI`, description: project.summary, type: "article" } } : { title: "Project not found | GBI" };
+  return createMetadata(project?.title ?? "Project not found", project?.summary ?? "Explore Green Belt Initiative project activities in South Sudan.", { path: `/projects/${slug}`, imagePath: project?.media?.[0]?.src, type: "article" });
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {

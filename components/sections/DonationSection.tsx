@@ -68,7 +68,7 @@ export function DonationSection() {
             <p className="gbi-eyebrow flex items-center gap-3 text-[#f5e6bd]"><span className="h-px w-8 bg-[#d5a53e]"/>MAKE A DIFFERENCE LOCALLY</p>
             <div className="mt-5 flex items-start gap-4">
               <span className="mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d5a53e]/60 bg-[#d5a53e]/10 text-[#f5e6bd]"><HeartIcon /></span>
-              <h2 id="donation-heading" className="font-display max-w-xl text-4xl leading-[1.06] tracking-[-.035em] text-[#f7f5ee] sm:text-5xl">Help communities build a greener, more resilient South Sudan.</h2>
+              <h2 id="donation-heading" className="font-display max-w-xl text-4xl leading-[1.06] tracking-[-.035em] text-[#f7f5ee] sm:text-5xl">Help communities build a greener, more resilient South Sudan</h2>
             </div>
             <p className="mt-7 max-w-xl text-base leading-7 text-white/75">A donation is one practical way to stand with communities working toward a healthier, more resilient future. Your support can help keep locally led environmental conservation, tree planting, sustainable agriculture and community resilience work moving forward.</p>
             <ul className="mt-7 grid max-w-xl gap-3 text-sm text-white/85 sm:grid-cols-2">
