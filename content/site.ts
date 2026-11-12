@@ -9,7 +9,7 @@ export const site = {
   socialLinks: [] as { label: string; href: string }[],
   navigation: [
     { label: "Home", href: "/" }, { label: "About GBI", href: "/about" }, { label: "Programmes", href: "/programs" },
-    { label: "Projects", href: "/projects" }, { label: "Contact", href: "/contact" },
+    { label: "Projects", href: "/projects" }, { label: "News & Updates", href: "/news" }, { label: "Contact", href: "/contact" },
   ],
   secondaryNavigation: [
     { label: "Get Involved", href: "/get-involved" },

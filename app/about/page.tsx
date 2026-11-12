@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { Timeline } from "@/components/sections/Timeline";
 
-export const metadata = createMetadata("About GBI", "Learn about Green Belt Initiative, a South Sudanese humanitarian, development and environmental organization operating since 2016.");
+export const metadata = createMetadata("About GBI", "Learn about Green Belt Initiative, a South Sudanese humanitarian, development and environmental organization operating since 2016.", { path: "/about", imagePath: "/images/projects/gbi-profile/aweil-east-wash-assessment-2019.jpeg" });
 
 export default function AboutPage() {
   return <main data-motion-section>
