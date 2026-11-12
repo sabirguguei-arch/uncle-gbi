@@ -14,14 +14,14 @@ export default function NewsPage() {
       <PageHero
         eyebrow="NEWS & UPDATES"
         title="News, Updates & Success Stories"
-        intro="Verified GBI news, updates and community stories will be published here as approved content becomes available."
+        intro="Verified GBI news, updates and community stories will be published here as approved content becomes available." backgroundImage="/images/gbi-sudd-wetlands-hero.jpg"
       />
 
       <section className="px-5 py-20 sm:px-10 lg:py-28">
         <div className="mx-auto max-w-[1240px]">
           <SectionHeading
             eyebrow="LATEST FROM GBI"
-            title="A place for verified stories and updates."
+            title="A place for verified stories and updates"
             intro="This section is ready for approved articles from GBI's future content workflow."
           />
 
@@ -41,18 +41,18 @@ export default function NewsPage() {
         <div className="mx-auto max-w-[1240px]">
           <SectionHeading
             eyebrow="FEATURED STORIES"
-            title="Verified stories will appear here as they are approved."
+            title="Verified stories will appear here as they are approved"
             intro="GBI is not publishing unverified articles, achievements, testimonials, statistics or photos in this initial section."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2" aria-label="Approved content areas">
             <article className="gbi-surface p-7 sm:p-9">
               <p className="gbi-eyebrow">GBI NEWS</p>
-              <h2 className="font-display mt-5 text-3xl leading-tight text-[#17342a]">No verified news articles yet.</h2>
+              <h2 className="font-display mt-5 text-3xl leading-tight text-[#17342a]">No verified news articles yet</h2>
               <p className="mt-4 leading-7 text-[#536b61]">Approved GBI news will be added here when source material is available.</p>
             </article>
             <article className="gbi-surface p-7 sm:p-9">
               <p className="gbi-eyebrow">SUCCESS STORIES</p>
-              <h2 className="font-display mt-5 text-3xl leading-tight text-[#17342a]">No verified success stories yet.</h2>
+              <h2 className="font-display mt-5 text-3xl leading-tight text-[#17342a]">No verified success stories yet</h2>
               <p className="mt-4 leading-7 text-[#536b61]">Approved community stories will be added here without changing the existing site design.</p>
             </article>
           </div>
