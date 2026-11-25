@@ -8,15 +8,22 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "next typegen && tsc --noEmit",
+    "test:cms": "playwright test --config=playwright.unit.config.ts",
     "test:e2e": "playwright test",
     "animation:studio": "remotion studio video/index.tsx --no-open --port 3200"
   },
   "dependencies": {
+    "@portabletext/react": "8.0.1",
+    "@portabletext/types": "4.0.2",
     "@remotion/player": "4.0.539",
+    "@sanity/image-url": "2.1.1",
     "next": "16.4.6",
+    "next-sanity": "^13.4.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "remotion": "4.0.539"
+    "remotion": "4.0.539",
+    "sanity": "^6.23.0",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
@@ -27,10 +34,17 @@
     "autoprefixer": "10.4.21",
     "eslint": "10.14.0",
     "eslint-config-next": "16.4.6",
+    "groq-js": "2.0.1",
     "postcss": "8.5.32",
     "tailwindcss": "3.4.17",
     "typescript": "5.9.3",
     "zod": "4.5.4"
+  },
+  "overrides": {
+    "@vercel/frameworks": {
+      "js-yaml": "3.15.2",
+      "smol-toml": "1.9.1"
+    }
   },
   "engines": {
     "node": "24.22.2"
