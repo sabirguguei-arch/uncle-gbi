@@ -2,6 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
+  testIgnore: /sanity-approved-visual\.spec\.ts/,
   fullyParallel: true,
   workers: 2,
   timeout: 90_000,

@@ -26,6 +26,20 @@ test("all public pages render, photographs load, and layouts fit the viewport", 
   expect(errors).toEqual([]);
 });
 
+test("News page hero, navigation, and SEO remain unchanged", async ({ page }) => {
+  const response = await page.goto("/news");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("main h1")).toHaveText("News, Updates & Success Stories");
+  await expect(page.locator("main section").first()).toHaveClass(/bg-\[#153c2e\]/);
+  await expect(page.locator("main section").first().locator('img[aria-hidden="true"]')).toHaveAttribute("src", /gbi-sudd-wetlands-hero/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://gbisouthsudan.org/news");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", "Read Green Belt Initiative news, updates and verified success stories from South Sudan.");
+  const primaryNewsLink = page.locator('a[href="/news"]').first();
+  if (!(await primaryNewsLink.isVisible())) {
+    await expect(page.getByRole("button", { name: "Open navigation", exact: true })).toBeVisible();
+  }
+});
+
 test("desktop and mobile navigation, escape dismissal, and back history work", async ({ page }) => {
   await page.goto("/");
   const primary = page.getByRole("navigation", { name: "Primary navigation" });

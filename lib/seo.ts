@@ -14,7 +14,8 @@ export function createMetadata(title: string, description?: string, options: Met
   const pageTitle = pageTitleBase.includes(site.name) ? pageTitleBase : `${pageTitleBase} | ${site.name}`;
   const pageDescription = description ?? site.description;
   const imagePath = options.imagePath ?? "/logo/gbi-logo.jpg";
-  const image = { url: absoluteUrl(imagePath), alt: `${site.name} logo` };
+  const imageUrl = imagePath.startsWith("http") ? imagePath : absoluteUrl(imagePath);
+  const image = { url: imageUrl, alt: `${site.name} logo` };
   const matchingProgram = programs.find(program => program.title === title);
   const inferredPath = title === "Our work" ? "/programs" : matchingProgram ? `/programs/${matchingProgram.slug}` : "/";
   return {
